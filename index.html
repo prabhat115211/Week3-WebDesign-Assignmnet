@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Defines the character encoding used by the webpage -->
+    <meta charset="UTF-8">
+
+    <!-- Makes the webpage adapt to different screen sizes -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Provides a short description of the webpage for search engines -->
+    <meta name="description"
+          content="Personal portfolio of Prabhat Ghising, Information Technology student at International American University.">
+
+    <!-- Sets the title displayed in the browser tab -->
+    <title>Prabhat Ghising | Personal Portfolio</title>
+
+    <!-- Links the external stylesheet that controls all presentation -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Header contains the main title, introduction, and primary navigation -->
+<header>
+    <h1>Prabhat Ghising</h1>
+    <p>Information Technology Student</p>
+
+    <!-- Primary navigation provides links to sections within the page -->
+    <nav aria-label="Primary">
+        <ul>
+            <!-- Internal navigation links using section IDs -->
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Main element contains the primary content of the portfolio -->
+<main>
+
+    <!-- About section introduces the portfolio owner -->
+    <section id="about">
+        <h2>About Me</h2>
+
+        <!-- Profile image with alternative text for accessibility -->
+        <img src="image/profile.jpg"
+             alt="Portrait of Prabhat Ghising wearing a navy suit, white shirt and burgundy tie"
+             width="200"
+             height="250">
+
+        <!-- Short personal introduction -->
+        <p>
+            Hello, I am Prabhat Ghising, an undergraduate Information Technology
+            student at International American University, expecting to graduate in
+            2028. I enjoy understanding how software works under the hood, from the
+            data structures that organize information to the operating systems that
+            run our programs.
+        </p>
+
+        <!-- Describes current learning goals and professional interests -->
+        <p>
+            I am currently building a strong foundation in programming, problem
+            solving and computer systems, and I am looking for internships and
+            collaborative projects where I can learn and contribute.
+        </p>
+    </section>
+
+    <!-- Skills section lists technical skills using a description list -->
+    <section id="skills">
+        <h2>Technical Skills</h2>
+
+        <!-- Description list groups each skill with its description -->
+        <dl>
+
+            <!-- C and C++ skill -->
+            <dt>C and C++</dt>
+            <dd>
+                Writing structured programs, using pointers and memory management,
+                and applying object-oriented design.
+            </dd>
+
+            <!-- Data Structures and Algorithms skill -->
+            <dt>Data Structures and Algorithms</dt>
+            <dd>
+                Implementing arrays, linked lists, stacks, queues, trees and
+                graphs, plus sorting and complexity analysis.
+            </dd>
+
+            <!-- Python skill -->
+            <dt>Python</dt>
+            <dd>
+                Scripting, automation and rapid prototyping of ideas.
+            </dd>
+
+            <!-- Database and SQL skill -->
+            <dt>Databases and SQL</dt>
+            <dd>
+                Designing relational schemas and writing queries to store and
+                retrieve data.
+            </dd>
+
+            <!-- Git and GitHub skill -->
+            <dt>Git and GitHub</dt>
+            <dd>
+                Version control, committing, branching and hosting code
+                repositories.
+            </dd>
+
+        </dl>
+    </section>
+
+    <!-- Projects section presents academic and programming projects -->
+    <section id="projects">
+        <h2>Projects</h2>
+
+        <!-- First project -->
+        <article>
+            <h3>Data Structures Library in C++</h3>
+
+            <p>
+                A collection of reusable implementations of linked lists, stacks,
+                queues and binary search trees, with sample programs demonstrating
+                insertion, deletion and traversal.
+            </p>
+
+            <!-- Link to the project's GitHub repository -->
+            <p>
+                <a href="https://github.com/prabhat115211">
+                    Source code on GitHub
+                </a>
+            </p>
+        </article>
+
+        <!-- Second project -->
+        <article>
+            <h3>CPU Scheduling Simulator in C</h3>
+
+            <p>
+                A command-line simulator that compares First-Come-First-Served,
+                Shortest Job First and Round Robin scheduling, reporting waiting,
+                turnaround and response time for each algorithm.
+            </p>
+
+            <!-- Link to the project's GitHub repository -->
+            <p>
+                <a href="https://github.com/prabhat115211">
+                    Source code on GitHub
+                </a>
+            </p>
+        </article>
+    </section>
+
+    <!-- Contact section provides contact information and a form -->
+    <section id="contact">
+        <h2>Contact</h2>
+
+        <!-- Email contact link -->
+        <p>
+            Email:
+            <a href="mailto:letsmailghishing@email.com">
+                Email@email.com
+            </a>
+        </p>
+
+        <!-- Telephone contact link -->
+        <p>
+            Phone:
+            <a href="tel:9818022633">
+                9818022633
+            </a>
+        </p>
+
+        <!-- GitHub profile link -->
+        <p>
+            GitHub:
+            <a href="https://github.com/prabhat115211">
+                github.com/prabhat115211
+            </a>
+        </p>
+
+        <!-- Contact form allows visitors to submit their information -->
+        <form action="#" method="post">
+
+            <!-- Name input field -->
+            <p>
+                <label for="name">Name</label><br>
+                <input type="text" id="name" name="name" required>
+            </p>
+
+            <!-- Email input field -->
+            <p>
+                <label for="email">Email</label><br>
+                <input type="email" id="email" name="email" required>
+            </p>
+
+            <!-- Message input field -->
+            <p>
+                <label for="message">Message</label><br>
+                <textarea id="message"
+                          name="message"
+                          rows="6"
+                          cols="40"
+                          required></textarea>
+            </p>
+
+            <!-- Submit button for the contact form -->
+            <p>
+                <button type="submit">Send Message</button>
+            </p>
+
+        </form>
+    </section>
+
+</main>
+
+<!-- Footer contains copyright information -->
+<footer>
+    <p>&copy; 2026 Prabhat Ghising. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

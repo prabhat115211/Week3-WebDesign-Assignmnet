@@ -1,0 +1,200 @@
+/* 1. DESIGN TOKENS ---------------------------------------- */
+:root {
+    --navy: #14213d;           /* header, headings, footer */
+    --navy-light: #264272;     /* gradient partner for navy */
+    --teal: #1b998b;           /* decorative accents */
+    --teal-dark: #0f6b61;      /* links and buttons (contrast 6.4:1 on white) */
+    --sand: #f4f1ea;           /* soft background for cards */
+    --white: #ffffff;
+    --text: #22262e;           /* body text (contrast 15.2:1 on white) */
+    --muted: #4f5766;
+    --border: #d9d3c5;
+    --radius: 12px;
+    --shadow: 0 4px 14px rgba(20, 33, 61, 0.12);
+    --font-body: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* 2. RESET AND BASE STYLES --------------------------------
+   Removes browser-default spacing so the design is controlled
+   entirely by this stylesheet. */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--sand);
+}
+
+h1, h2, h3 { color: var(--navy); line-height: 1.25; margin: 0 0 0.75rem; }
+h1 { font-size: clamp(2rem, 6vw, 3rem); }      /* fluid heading size */
+h2 { font-size: clamp(1.5rem, 4vw, 1.9rem); }
+h3 { font-size: 1.2rem; }
+p  { margin: 0 0 1rem; }
+ul { margin: 0; padding: 0; list-style: none; }
+a  { color: var(--teal-dark); }
+img { max-width: 100%; height: auto; }          /* images never overflow */
+
+/* 3. HEADER AND NAVIGATION (Flexbox) ---------------------- */
+header {
+    background: linear-gradient(135deg, var(--navy), var(--navy-light));
+    color: var(--white);
+    text-align: center;
+    padding: 2.5rem 1rem 1.5rem;
+}
+header h1 { color: var(--white); margin-bottom: 0.25rem; }
+header > p { margin-bottom: 1.25rem; font-size: 1.15rem; color: #5fe0d1; letter-spacing: 0.04em; }
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+}
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.25rem 0;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s ease;
+}
+nav a:hover { border-bottom-color: var(--teal); }
+
+/* 4. PAGE SECTIONS ---------------------------------------- */
+main {
+    width: min(960px, 92%);
+    margin: 2rem auto;
+}
+
+section {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.75rem;
+    margin-bottom: 1.75rem;
+    scroll-margin-top: 1rem;
+}
+
+section h2 {
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--teal);
+}
+
+/* About: photo beside text (CSS Grid on wider screens) */
+#about img {
+    display: block;
+    margin: 0 auto 1.25rem;
+    border-radius: var(--radius);
+    border: 4px solid var(--teal);
+    object-fit: cover;
+}
+
+/* Skills: description list laid out as a two-column grid */
+dl { margin: 0; display: grid; gap: 0.25rem; }
+dt { font-weight: 700; color: var(--navy); margin-top: 0.75rem; }
+dd { margin: 0; color: var(--muted); }
+
+/* Projects: each article becomes a card */
+#projects article {
+    background: var(--sand);
+    border-left: 5px solid var(--teal);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem 0.25rem;
+    margin-top: 1.25rem;
+}
+
+/* 5. CONTACT FORM ----------------------------------------- */
+form {
+    margin-top: 1.5rem;
+    padding: 1.5rem 1.5rem 0.5rem;
+    background: var(--sand);
+    border-radius: var(--radius);
+}
+label { font-weight: 600; color: var(--navy); }
+input, textarea {
+    width: 100%;
+    margin-top: 0.25rem;
+    padding: 0.65rem 0.8rem;
+    font: inherit;
+    color: var(--text);
+    background: var(--white);
+    border: 1px solid #9aa3b2;
+    border-radius: 8px;
+}
+textarea { resize: vertical; }
+input:focus, textarea:focus { outline: 3px solid var(--teal); border-color: var(--teal-dark); }
+
+button {
+    font: inherit;
+    font-weight: 600;
+    color: var(--white);
+    background: var(--teal-dark);
+    border: 2px solid var(--teal-dark);
+    padding: 0.7rem 1.8rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+button:hover { background: var(--navy); border-color: var(--navy); transform: translateY(-2px); }
+
+/* 6. FOOTER ------------------------------------------------ */
+footer {
+    background: var(--navy);
+    color: var(--white);
+    text-align: center;
+    padding: 1.25rem 1rem;
+}
+footer p { margin: 0; }
+
+/* 7. RESPONSIVE DESIGN (mobile-first) ---------------------
+   Rules above target small screens. Each query below adds
+   layout enhancements as the viewport grows. */
+
+@media (min-width: 641px) {
+    section { padding: 2.25rem; }
+
+    /* About: two columns, photo left and text right */
+    #about {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        column-gap: 2rem;
+        align-items: start;
+    }
+    #about h2 { grid-column: 1 / -1; }
+    #about img { grid-column: 1; grid-row: 2 / span 2; margin: 0; }
+    #about p   { grid-column: 2; }
+
+    /* Skills: term on the left, description on the right */
+    dl { grid-template-columns: minmax(12rem, 16rem) 1fr; column-gap: 1.5rem; }
+    dt, dd { padding: 0.6rem 0; margin: 0; border-bottom: 1px solid var(--border); }
+}
+
+@media (min-width: 901px) {
+    /* Projects: two cards side by side */
+    #projects { display: grid; grid-template-columns: 1fr 1fr; column-gap: 1.5rem; }
+    #projects h2 { grid-column: 1 / -1; }
+
+    /* Contact form stays a comfortable reading width */
+    form { max-width: 640px; }
+}
+
+/* 8. ACCESSIBILITY AND PRINT ------------------------------ */
+a:focus-visible, button:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+}
+
+/* Simple print layout */
+@media print {
+    nav, form, footer { display: none; }
+    body { background: var(--white); }
+    section { box-shadow: none; }
+}
